@@ -1,0 +1,10 @@
+torch>=2.4
+torchvision
+segmentation-models-pytorch
+numpy
+pillow
+opencv-python
+scipy
+pycocotools
+rasterio
+requests
