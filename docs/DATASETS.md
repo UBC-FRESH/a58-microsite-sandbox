@@ -28,8 +28,19 @@ The 750-frame A58 flight (frames 0001–0750, 1024×682 downscales) is in the
 `a58-sandbox` project. Full-res originals (8192×5460 with GPS EXIF) live on
 the project server — ask Gregory for the path.
 
-## Model checkpoints
+## Model checkpoints and large data (DataLad)
 
-Current production candidate: `unet_resnet34_focal_best.pt` (U-Net ResNet34,
-focal loss). Ask Gregory for a copy; put it anywhere and point
-`--ckpt` at it.
+Checkpoints (incl. the current production candidate
+`unet_resnet34_focal_best.pt`), the v4 annotated dataset, raw flight frames,
+and derived products live in the DataLad data repo
+[`UBC-FRESH/fresh-ml4seeding-data`](https://github.com/UBC-FRESH/fresh-ml4seeding-data):
+
+```
+git clone https://github.com/UBC-FRESH/fresh-ml4seeding-data
+cd fresh-ml4seeding-data && datalad get data/models data/datasets
+```
+
+Checkpoints are under `data/models/`, the v4 dataset under
+`data/datasets/roboflow_v4/`. Large annexed payloads are served from
+Arbutus S3 — ask Gregory if `datalad get` can't fetch them (credentials
+are being set up).
